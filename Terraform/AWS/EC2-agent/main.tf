@@ -44,12 +44,12 @@ resource "aws_instance" "morpheus" {
   instance_type               = var.type
   subnet_id                   = data.aws_subnets.subnets.ids[0]
   associate_public_ip_address = "true"
-  user_data = <<-EOF
-   #cloud-config
-   runcmd:
-   - <%=instance.cloudConfig.agentInstall%>
-   - <%=instance.cloudConfig.finalizeServer%>
-   EOF
+  # user_data = <<-EOF
+  #  #cloud-config
+  #  runcmd:
+  #  - <%=instance.cloudConfig.agentInstall%>
+  #  - <%=instance.cloudConfig.finalizeServer%>
+  #  EOF
 
   vpc_security_group_ids = [aws_security_group.morpheus_sg.id]
   root_block_device {
