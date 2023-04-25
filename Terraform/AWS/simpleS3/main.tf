@@ -3,7 +3,6 @@ resource "aws_s3_bucket" "s3" {
     force_destroy = var.force_destroy
     tags = {
     Name = var.bucket_prefix
-    Date = timestamp()
     }
 }
 
